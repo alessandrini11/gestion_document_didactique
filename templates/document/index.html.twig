@@ -1,0 +1,82 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Document{% endblock %}
+
+{% block body %}
+    <div class="w-11/12 mx-auto">
+
+        <section class="my-3 border border-gray-300 shadow-lg p-3">
+            {% for message in app.flashes('success') %}
+                <div class="bg-green-200 text-green-600 ">
+                    <p class="py-3 px-6">{{ message }}</p>
+                </div>
+            {% endfor %}
+            <div class="flex justify-between">
+                <h2 class="mb-3 text-xl font-semibold">Liste des Documents</h2>
+                <p class="text-right  hover:text-purple-500  text-gray-600 text-2xl">
+                    <a class=" transform hover:scale-110" href="{{ path('document_new') }}"><i class=" far fa-plus-square"></i></a>
+                </p>
+            </div>
+            <table class="min-w-full">
+                <thead>
+                <tr class="bg-gray-200 text-gray-600 uppercase text-sm leading-normal">
+                    <th class="py-3 lg:px-6 text-center">Nom</th>
+                    <th class="py-3 lg:px-6 text-center">Type</th>
+                    <th class="py-3 lg:px-6 text-center">Marque</th>
+                    <th class="py-3 lg:px-6 text-center">Quantite</th>
+                    <th class="py-3 lg:px-6 text-center">Disponibilité</th>
+                    <th class="py-3 lg:px-6 text-center">Action</th>
+                </tr>
+                </thead>
+                <tbody class="text-gray-600 text-sm font-light">
+                {% for document in documents %}
+                    <tr class="border-b border-gray-200 hover:bg-gray-100">
+                        <td class="py-3 lg:px-6 text-left whitespace-nowrap">
+                            <div class="flex justify-center items-center">
+                                <span class="font-medium">{{ document.nom }}</span>
+                            </div>
+                        </td>
+                        <td class="py-3 lg:px-6 text-left whitespace-nowrap">
+                            <div class="flex justify-center items-center">
+                                <span class="font-medium">{{ document.type.nom }}</span>
+                            </div>
+                        </td>
+                        <td class="py-3 lg:px-6 text-left">
+                            <div class="flex justify-center items-center">
+                                <span>{{ document.marque }}</span>
+                            </div>
+                        </td>
+                        <td class="py-3 lg:px-6 text-left whitespace-nowrap">
+                            <div class="flex justify-center items-center">
+                                <span class="font-medium">{{ document.quantite }}</span>
+                            </div>
+                        </td>
+                        <td class="py-3 lg:px-6 text-left">
+                            <div class="flex justify-center items-center">
+                                <span>{{ document.disponibilite ? 'Oui' : 'Non' }}</span>
+                            </div>
+                        </td>
+                        <td class="py-3 px-6 text-center">
+                            <div class="flex item-center justify-center">
+                                <a class="w-4 mr-2 transform hover:text-purple-500 hover:scale-110" href="{{ path('document_show', {'id': document.id}) }}">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                                    </svg>
+                                </a>
+                                <a class="w-4 mr-2 transform hover:text-purple-500 hover:scale-110" href="{{ path('document_edit', {'id': document.id}) }}">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />
+                                    </svg>
+                                </a>
+                                {{ include('document/_delete_form.html.twig') }}
+                            </div>
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </section>
+    </div>
+
+{% endblock %}

@@ -52,6 +52,20 @@ class Deplacement
      */
     private $confirmation_retour;
 
+    /**
+     * @ORM\Column(type="boolean", nullable=true)
+     */
+    private $demande_retour;
+
+
+    public function __construct()
+    {
+        $this->demande_retour = 0;
+        $this->confirmation_retour = 0;
+        $this->confirmation_sortie = 0;
+        $this->date_sortie = new \DateTime();
+        $this->date_retour = null;
+    }
 
     public function getId(): ?int
     {
@@ -150,6 +164,18 @@ class Deplacement
     public function setConfirmationRetour(bool $confirmation_retour): self
     {
         $this->confirmation_retour = $confirmation_retour;
+
+        return $this;
+    }
+
+    public function getDemandeRetour(): ?bool
+    {
+        return $this->demande_retour;
+    }
+
+    public function setDemandeRetour(?bool $demande_retour): self
+    {
+        $this->demande_retour = $demande_retour;
 
         return $this;
     }

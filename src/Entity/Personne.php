@@ -59,9 +59,20 @@ class Personne
      */
     private $deplacements;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=Sexe::class, inversedBy="personnes")
+     */
+    private $sexe;
+
+    /**
+     * @ORM\ManyToMany(targetEntity=Role::class, inversedBy="personnes")
+     */
+    private $role;
+    
     public function __construct()
     {
         $this->deplacements = new ArrayCollection();
+        $this->role = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -179,6 +190,42 @@ class Personne
                 $deplacement->setPersonne(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getSexe(): ?Sexe
+    {
+        return $this->sexe;
+    }
+
+    public function setSexe(?Sexe $sexe): self
+    {
+        $this->sexe = $sexe;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Role[]
+     */
+    public function getRole(): Collection
+    {
+        return $this->role;
+    }
+
+    public function addRole(Role $role): self
+    {
+        if (!$this->role->contains($role)) {
+            $this->role[] = $role;
+        }
+
+        return $this;
+    }
+
+    public function removeRole(Role $role): self
+    {
+        $this->role->removeElement($role);
 
         return $this;
     }

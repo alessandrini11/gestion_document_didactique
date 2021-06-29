@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+          integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+          crossorigin="anonymous" />
+    <title>Gesdidac | {% block title %}{% endblock %}</title>
+    {# Run `composer require symfony/webpack-encore-bundle`
+       and uncomment the following Encore helpers to start using Symfony UX #}
+    {% block stylesheets %}
+        {{ encore_entry_link_tags('app') }}
+    {% endblock %}
+
+    {% block javascripts %}
+        {{ encore_entry_script_tags('app') }}
+    {% endblock %}
+</head>
+<body class="">
+<nav class="bg-blue-900 py-5 text-white">
+    <div class="w-11/12 md:w-4/5 mx-auto">
+        <div class="flex justify-between text-xl">
+            <a class="font-bold" href="">GESDICDAC</a>
+            <div class="">
+                <ul class="hidden md:flex">
+                    <li class="mx-2"><a href="{{ path('admin') }}" class="">Dashboard</a></li>
+                    <li class="mx-2"><a href="{{ path('home') }}" class="">Acceuil</a></li>
+                    <li class="mx-2"><a href="{{ path('sortie') }}" class="">Sorties</a></li>
+                    <li class="mx-2"><a href="{{ path('retour') }}" class="">Retours</a></li>
+                    <li class="mx-2"><a href="{{ path('document_index') }}" class="">Document</a></li>
+                    <li class="mx-2"><a href="{{ path('deplacement_index') }}" class="">Deplacement</a></li>
+                    <li class="mx-2"><a href="{{ path('personne_index') }}" class="">Utilisateur</a></li>
+                </ul>
+                <div id="menu-btn" class="md:hidden cursor-pointer">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </div>
+            <div class="hidden md:block">
+                <i class="fas fa-power-off"></i>
+            </div>
+        </div>
+    </div>
+    <ul id="mobile-menu" class=" text-xl text-center -left-full bg-blue-900 fixed top-0   h-screen w-1/2 flex flex-col pt-5 md:hidden transition-all">
+        <li class="py-2 mx-4 border-b border-white"><a href="{{ path('admin') }}" class="">Dashboard</a></li>
+        <li class="my-2 mx-4 border-b border-white"><a href="{{ path('home') }}" class="">Acceuil</a></li>
+        <li class="py-2 mx-4 border-b border-white"><a href="{{ path('sortie') }}" class="">Sorties</a></li>
+        <li class="my-2 mx-4 border-b border-white"><a href="{{ path('retour') }}" class="">Retours</a></li>
+        <li class="py-2 mx-4 border-b border-white"><a href="{{ path('document_index') }}" class="">Documents</a></li>
+        <li class="py-2 mx-4 border-b border-white"><a href="{{ path('deplacement_index') }}" class="">Deplacements</a></li>
+        <li class="py-2 mx-4 border-b border-white"><a href="{{ path('personne_index') }}" class="">Utilisateurs</a></li>
+        <li class="py-2 mx-4 border-b border-white"><i class="fas fa-power-off"></i></li>
+    </ul>
+</nav>
+{% block body %}{% endblock %}
+</body>
+</html>

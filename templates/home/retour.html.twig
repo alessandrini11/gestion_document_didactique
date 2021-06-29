@@ -1,0 +1,89 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Retour{% endblock %}
+
+{% block body %}
+    <div class="w-11/12  mx-auto">
+
+        <section class="my-3 border border-gray-300 shadow-lg p-3">
+            <h2 class="mb-3 text-xl font-semibold">Liste des Déplacements Retours</h2>
+            <table class="min-w-full">
+                <thead>
+                <tr class="bg-gray-200 text-gray-600 uppercase text-sm leading-normal">
+                    <th class="py-3 lg:px-6 text-left">Nom</th>
+                    <th class="py-3 lg:px-6 text-left">Type</th>
+                    <th class="py-3 lg:px-6 text-left">Utilisateur</th>
+                    <th class="py-3 lg:px-6 text-center">Filiere</th>
+                    <th class="py-3 lg:px-6 text-center">Date</th>
+                    <th class="py-3 lg:px-6 text-center">Statut</th>
+                    <th class="py-3 lg:px-6 text-center">Action</th>
+                </tr>
+                </thead>
+                <tbody class="text-gray-600 text-sm font-light">
+                <tr class="border-b border-gray-200 hover:bg-gray-100">
+                    <td class="py-3 lg:px-6 text-left whitespace-nowrap">
+                        <div class="flex items-center">
+                            <span class="font-medium">React Project</span>
+                        </div>
+                    </td>
+                    <td class="py-3 lg:px-6 text-left whitespace-nowrap">
+                        <div class="flex items-center">
+                            <span class="font-medium">React Project</span>
+                        </div>
+                    </td>
+                    <td class="py-3 lg:px-6 text-left whitespace-nowrap">
+                        <div class="flex items-center">
+                            <span class="font-medium">React Project</span>
+                        </div>
+                    </td>
+                    <td class="py-3 lg:px-6 text-left">
+                        <div class="flex items-center">
+                            <span>Eshal Rosas</span>
+                        </div>
+                    </td>
+                    <td class="py-3 lg:px-6 text-center">
+                        <span>11 jan 2021</span>
+                    </td>
+                    <td class="py-3 px-6 text-center">
+                        <span class="bg-purple-200 text-purple-600 py-1 px-3 rounded-full text-xs">Active</span>
+                    </td>
+                    <td>
+                        <div class="">
+                            <label
+                                    for="toogleA"
+                                    class="flex items-center cursor-pointer"
+                            >
+                                <!-- toggle -->
+                                <div class="relative">
+                                    <!-- input -->
+                                    <input id="toogleA" type="checkbox" value="1" class="retour sr-only" />
+                                    <!-- line -->
+                                    <div class="w-10 h-4 bg-gray-400 rounded-full shadow-inner"></div>
+                                    <!-- dot -->
+                                    <div class="lol dot absolute w-6 h-6 bg-white rounded-full shadow -left-1 -top-1 transition"></div>
+                                </div>
+                            </label>
+                        </div>
+                        <div class="">
+                            <label
+                                    for="toogleb"
+                                    class="flex items-center cursor-pointer"
+                            >
+                                <!-- toggle -->
+                                <div class="relative">
+                                    <!-- input -->
+                                    <input id="toogleb" type="checkbox" value="1" class="demande sr-only" />
+                                    <!-- line -->
+                                    <div class="w-10 h-4 bg-gray-400 rounded-full shadow-inner"></div>
+                                    <!-- dot -->
+                                    <div class="lol dot absolute w-6 h-6 bg-white rounded-full shadow -left-1 -top-1 transition"></div>
+                                </div>
+                            </label>
+                        </div>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </section>
+    </div>
+{% endblock %}

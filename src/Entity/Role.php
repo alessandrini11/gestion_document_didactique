@@ -2,15 +2,15 @@
 
 namespace App\Entity;
 
-use App\Repository\SexeRepository;
+use App\Repository\RoleRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity(repositoryClass=SexeRepository::class)
+ * @ORM\Entity(repositoryClass=RoleRepository::class)
  */
-class Sexe
+class Role
 {
     /**
      * @ORM\Id
@@ -25,7 +25,7 @@ class Sexe
     private $nom;
 
     /**
-     * @ORM\OneToMany(targetEntity=Personne::class, mappedBy="sexe")
+     * @ORM\ManyToMany(targetEntity=Personne::class, mappedBy="role")
      */
     private $personnes;
 
@@ -63,7 +63,7 @@ class Sexe
     {
         if (!$this->personnes->contains($personne)) {
             $this->personnes[] = $personne;
-            $personne->setSexe($this);
+            $personne->addRole($this);
         }
 
         return $this;
@@ -72,10 +72,7 @@ class Sexe
     public function removePersonne(Personne $personne): self
     {
         if ($this->personnes->removeElement($personne)) {
-            // set the owning side to null (unless already changed)
-            if ($personne->getSexe() === $this) {
-                $personne->setSexe(null);
-            }
+            $personne->removeRole($this);
         }
 
         return $this;

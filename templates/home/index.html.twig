@@ -3,18 +3,138 @@
 {% block title %}Hello HomeController!{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
-
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
-
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ 'D:/web projects/git_fund/src/Controller/HomeController.php'|file_link(0) }}">src/Controller/HomeController.php</a></code></li>
-        <li>Your template at <code><a href="{{ 'D:/web projects/git_fund/templates/home/index.html.twig'|file_link(0) }}">templates/home/index.html.twig</a></code></li>
-    </ul>
+<div class="w-11/12  mx-auto">
+    <section class="my-3 border border-gray-300 shadow-lg p-3">
+        <h2 class="mb-3 text-xl font-semibold">Deplacement en attente de confirmation de sortie</h2>
+        <table class=" w-full">
+            <thead>
+                <tr class="bg-gray-200 text-gray-600 uppercase text-sm leading-normal">
+                    <th class="py-3 lg:px-6 text-left">Document</th>
+                    <th class="py-3 lg:px-6 text-center">Quantité</th>
+                    <th class="py-3 lg:px-6 text-left">Utilisateur</th>
+                    <th class="py-3 lg:px-6 text-center">Date</th>
+                    <th class="py-3 lg:px-6 text-center">Status</th>
+             
+                </tr>
+            </thead>
+            <tbody class="text-gray-600 text-sm font-light">
+                <tr class="border-b border-gray-200 hover:bg-gray-100">
+                    <td class="py-3 lg:px-6 text-left whitespace-nowrap">
+                        <div class="flex items-center">
+                            <span class="font-medium">React Project</span>
+                        </div>
+                    </td>
+                    <td class="py-3 lg:px-6 text-left whitespace-nowrap">
+                        <div class="flex items-center">
+                            <span class="font-medium">2</span>
+                        </div>
+                    </td>
+                    <td class="py-3 lg:px-6 text-left">
+                        <div class="flex items-center">
+                            <span>Eshal Rosas</span>
+                        </div>
+                    </td>
+                    <td class="py-3 lg:px-6 text-center">
+                        <span>11 jan 2021</span>
+                    </td>
+                    <td class="py-3 lg:px-6 text-center">
+                        <span class="bg-purple-200 text-purple-600 py-1 px-3 rounded-full text-xs">Active</span>
+                    </td>
+                    
+                </tr>
+            </tbody>
+        </table>
+    </section>
+    <section class="my-3 border border-gray-300 shadow-lg p-3">
+        <h2 class="mb-3 text-xl font-semibold">Document en attente de confirmation de retour</h2>
+        <table class="min-w-full">
+            <thead>
+                <tr class="bg-gray-200 text-gray-600 uppercase text-sm leading-normal">
+                    <th class="py-3 lg:px-6 text-left">Document</th>
+                    <th class="py-3 lg:px-6 text-left">Utilisateur</th>
+                    <th class="py-3 lg:px-6 text-center">Date</th>
+                    <th class="py-3 lg:px-6 text-center">Status</th>
+                    
+                </tr>
+            </thead>
+            <tbody class="text-gray-600 text-sm font-light">
+                <tr class="border-b border-gray-200 hover:bg-gray-100">
+                    <td class="py-3 lg:px-6 text-left whitespace-nowrap">
+                        <div class="flex items-center">
+                            <span class="font-medium">React Project</span>
+                        </div>
+                    </td>
+                    <td class="py-3 lg:px-6 text-left">
+                        <div class="flex items-center">
+                            <span>Eshal Rosas</span>
+                        </div>
+                    </td>
+                    <td class="py-3 lg:px-6 text-center">
+                        <span>11 jan 2021</span>
+                    </td>
+                    <td class="py-3 px-6 text-center">
+                        <span class="bg-purple-200 text-purple-600 py-1 px-3 rounded-full text-xs">Active</span>
+                    </td>
+                    
+                </tr>
+            </tbody>
+        </table>
+    </section>
+    <section class="my-3 border border-gray-300 shadow-lg p-3">
+        <h2 class="mb-3 text-xl font-semibold">Nouveaux Document</h2>
+        <table class="min-w-full">
+            <thead>
+                <tr class="bg-gray-200 text-gray-600 uppercase text-sm leading-normal">
+                    <th class="py-3 lg:px-6 text-left">Nom</th>
+                    <th class="py-3 lg:px-6 text-left">Marque</th>
+                    <th class="py-3 lg:px-6 text-center">Quantité</th>
+                    <th class="py-3 lg:px-6 text-center">Disponibilité</th>
+                </tr>
+            </thead>
+            <tbody class="text-gray-600 text-sm font-light">
+                <tr class="border-b border-gray-200 hover:bg-gray-100">
+                    <td class="py-3 lg:px-6 text-left whitespace-nowrap">
+                        <div class="flex items-center">
+                            <span class="font-medium">React Project</span>
+                        </div>
+                    </td>
+                    <td class="py-3 lg:px-6 text-left">
+                        <div class="flex items-center">
+                            <span>Eshal Rosas</span>
+                        </div>
+                    </td>
+                    <td class="py-3 lg:px-6 text-center">
+                        <span>11 jan 2021</span>
+                    </td>
+                    <td class="py-3 px-6 text-center">
+                        <span class="bg-purple-200 text-purple-600 py-1 px-3 rounded-full text-xs">Active</span>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
 </div>
+{% endblock %}
+{% block javascripts %}
+<script >
+const toggle = document.querySelectorAll('.toogle')
+function toggleConfirm(e){
+        const dot = this.parentNode.querySelector('.dot')
+        if ( this.value == 1){
+            this.value = 2
+            dot.classList.add('bash')
+            
+            console.log(this.value)
+        }else if(this.value == 2) {
+            this.value = 1
+            console.log(this.value)
+            dot.classList.remove('bash')
+        }
+        
+        
+    }
+    toggle.forEach(function(link){
+        link.addEventListener('click',toggleConfirm)
+    })
+</script>
 {% endblock %}

@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Deplacement{% endblock %}
+
+{% block body %}
+    <h1>Deplacement</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ deplacement.id }}</td>
+            </tr>
+            <tr>
+                <th>Quantite</th>
+                <td>{{ deplacement.quantite }}</td>
+            </tr>
+            <tr>
+                <th>Date_sortie</th>
+                <td>{{ deplacement.dateSortie ? deplacement.dateSortie|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Date_retour</th>
+                <td>{{ deplacement.dateRetour ? deplacement.dateRetour|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Confirmation_sortie</th>
+                <td>{{ deplacement.confirmationSortie ? 'Yes' : 'No' }}</td>
+            </tr>
+            <tr>
+                <th>Confirmation_retour</th>
+                <td>{{ deplacement.confirmationRetour ? 'Yes' : 'No' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('deplacement_index') }}">back to list</a>
+
+    <a href="{{ path('deplacement_edit', {'id': deplacement.id}) }}">edit</a>
+
+    {{ include('deplacement/_delete_form.html.twig') }}
+{% endblock %}
