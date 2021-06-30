@@ -42,6 +42,7 @@ class DeplacementController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $deplacement->setPersonne($this->getUser());
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($deplacement);
             $entityManager->flush();

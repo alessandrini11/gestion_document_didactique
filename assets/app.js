@@ -34,7 +34,7 @@ window.addEventListener("load",function () {
                 "dateRetour" : false
             }
             axios
-                .put(`/admin/api/deplacements/${id}`,data)
+                .put(`/api/deplacements/${id}`,data)
                 .then(function (respo) { respo.data.id = id })
                 .catch(function (error) {console.log(error)})
             console.log('ok')
@@ -45,7 +45,7 @@ window.addEventListener("load",function () {
                 "confirmationRetour": true,
                 "dateRetour" : `${date.getFullYear()}-${date.getMonth()}-${date.getDate()}`
             }
-            axios.put(`/admin/api/deplacements/${id}`,data)
+            axios.put(`/api/deplacements/${id}`,data)
                 .then(function (respo) { respo.data.id = id })
                 .catch(function (error) {console.log(error)})
             console.log('ok')
@@ -62,7 +62,7 @@ window.addEventListener("load",function () {
                 "confirmationSortie": false
             }
             axios
-                .put(`/admin/api/deplacements/${id}`,data)
+                .put(`/api/deplacements/${id}`,data)
                 .then(function (respo) { respo.data.id = id })
                 .catch(function (error) {console.log(error)})
             console.log('ok')
@@ -72,7 +72,7 @@ window.addEventListener("load",function () {
             const data = {
                 "confirmationSortie": true
             }
-            axios.put(`/admin/api/deplacements/${id}`,data)
+            axios.put(`/api/deplacements/${id}`,data)
                 .then(function (respo) { respo.data.id = id })
                 .catch(function (error) {console.log(error)})
             console.log('ok')
@@ -91,7 +91,7 @@ window.addEventListener("load",function () {
                 "demandeRetour": false
             }
             axios
-                .put(`/admin/api/deplacements/${id}`,data)
+                .put(`/api/deplacements/${id}`,data)
                 .then(function (respo) { respo.data.id = id })
                 .catch(function (error) {console.log(error)})
             console.log('ok')
@@ -101,7 +101,7 @@ window.addEventListener("load",function () {
             const data = {
                 "demandeRetour": true
             }
-            axios.put(`/admin/api/deplacements/${id}`,data)
+            axios.put(`/api/deplacements/${id}`,data)
                 .then(function (respo) { respo.data.id = id })
                 .catch(function (error) {console.log(error)})
             console.log('ok')

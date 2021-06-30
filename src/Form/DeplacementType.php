@@ -21,10 +21,6 @@ class DeplacementType extends AbstractType
                 'choice_label' => 'nom',
 
             ])
-            ->add('personne',EntityType::class,[
-                'class' => Personne::class,
-                'choice_label' => 'nom'
-            ])
             ->add('quantite')
         ;
     }

@@ -73,6 +73,9 @@ class Deplacement
     {
         $this->date_sortie = new \DateTime();
         $this->date_retour = null;
+        $this->demande_retour = 0;
+        $this->confirmation_retour = 0;
+        $this->confirmation_sortie = 0;
     }
 
     public function getId(): ?int

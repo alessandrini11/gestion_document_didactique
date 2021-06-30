@@ -13,7 +13,7 @@
             {% endfor %}
             <div class="flex justify-between">
                 <h2 class="mb-3 text-xl font-semibold">Liste des Documents</h2>
-                {% if is_granted('ROLE_ADMIN') %}
+                {% if app.user and is_granted('ROLE_ADMIN') %}
                 <p class="text-right  hover:text-purple-500  text-gray-600 text-2xl">
                     <a class=" transform hover:scale-110" href="{{ path('document_new') }}"><i class=" far fa-plus-square"></i></a>
                 </p>
@@ -27,7 +27,9 @@
                     <th class="py-3 lg:px-6 text-center">Marque</th>
                     <th class="py-3 lg:px-6 text-center">Quantite</th>
                     <th class="py-3 lg:px-6 text-center">Disponibilité</th>
-                    {% if is_granted('ROLE_ADMIN') %}<th class="py-3 lg:px-6 text-center">Action</th>{% endif %}
+                    {% if is_granted('ROLE_ADMIN') %}
+                        <th class="py-3 lg:px-6 text-center">Action</th>
+                    {% endif %}
                 </tr>
                 </thead>
                 <tbody class="text-gray-600 text-sm font-light">

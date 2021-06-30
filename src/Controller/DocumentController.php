@@ -74,6 +74,10 @@ class DocumentController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
+            $this->addFlash(
+                'success',
+                'Votre Document a été bien modifié'
+            );
             return $this->redirectToRoute('document_index');
         }
 
