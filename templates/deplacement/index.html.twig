@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Deplacement index{% endblock %}
+{% block title %}Deplacement{% endblock %}
 
 {% block body %}
     <div class="w-11/12 mx-auto">
@@ -20,6 +20,7 @@
             <table class="min-w-full">
                 <thead>
                 <tr class="bg-gray-200 text-gray-600 uppercase text-sm leading-normal">
+                    <th class="py-3 lg:px-6 text-left">Id</th>
                     <th class="py-3 lg:px-6 text-left">Nom</th>
                     <th class="py-3 lg:px-6 text-left">Type</th>
                     <th class="py-3 lg:px-6 text-center">Quantité</th>
@@ -33,6 +34,11 @@
                 <tbody class="text-gray-600 text-sm font-light">
                 {% for deplacement in deplacements %}
                     <tr class="border-b border-gray-200 hover:bg-gray-100">
+                        <td class="py-3 lg:px-6 text-left whitespace-nowrap">
+                            <div class="flex items-center">
+                                <span class="font-medium">{{ deplacement.id }}</span>
+                            </div>
+                        </td>
                         <td class="py-3 lg:px-6 text-left whitespace-nowrap">
                             <div class="flex items-center">
                                 <span class="font-medium">{{ deplacement.document.nom }}</span>

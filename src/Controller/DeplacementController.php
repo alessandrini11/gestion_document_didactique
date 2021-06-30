@@ -5,13 +5,14 @@ namespace App\Controller;
 use App\Entity\Deplacement;
 use App\Form\DeplacementType;
 use App\Repository\DeplacementRepository;
+use Doctrine\Persistence\ObjectManager;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
- * @Route("/admin/deplacement")
+ * @Route("/deplacement")
  */
 class DeplacementController extends AbstractController
 {
@@ -21,7 +22,13 @@ class DeplacementController extends AbstractController
     public function index(DeplacementRepository $deplacementRepository): Response
     {
         return $this->render('deplacement/index.html.twig', [
-            'deplacements' => $deplacementRepository->findAll(),
+            'deplacements' => $deplacementRepository->findBy(array(
+                'confirmation_sortie' => 1,
+                'confirmation_retour' => 1,
+                'demande_retour' => 1,
+            ),array(
+                'date_retour' => 'ASC'
+            )),
         ]);
     }
 
@@ -94,4 +101,6 @@ class DeplacementController extends AbstractController
 
         return $this->redirectToRoute('deplacement_index');
     }
+
+
 }

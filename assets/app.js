@@ -7,7 +7,7 @@
 
 // any CSS you import will output into a single css file (app.css in this case)
 import './styles/app.css';
-
+import axios from "axios";
 // start the Stimulus application
 import './bootstrap';
 window.addEventListener("load",function () {
@@ -16,6 +16,7 @@ window.addEventListener("load",function () {
     const retour = document.querySelectorAll('.retour')
     const sortie = document.querySelectorAll('.sortie')
     const demandeRetour = document.querySelectorAll('.demande')
+
     function toggleMenu() {
 
         mobileMenu.classList.toggle('-left-full')
@@ -23,51 +24,89 @@ window.addEventListener("load",function () {
     }
     function toggleConfirmRetour(e){
         const dot = this.parentNode.querySelector('.dot')
-        console.log("retour")
-        if ( this.value == 1){
-            this.value = 2
-            dot.classList.add("bash")
-            
-            console.log(this.value)
-        }else if(this.value == 2) {
-            this.value = 1
-            console.log(this.value)
+        let id = this.parentNode.querySelector('span.hidden')
+        id = parseInt(id.innerText)
+        const date = new Date()
+        console.log(id)
+        if (dot.classList.contains("bash")){
+            const data = {
+                "confirmationRetour": false,
+                "dateRetour" : false
+            }
+            axios
+                .put(`/admin/api/deplacements/${id}`,data)
+                .then(function (respo) { respo.data.id = id })
+                .catch(function (error) {console.log(error)})
+            console.log('ok')
             dot.classList.remove("bash")
+
+        }else {
+            const data = {
+                "confirmationRetour": true,
+                "dateRetour" : `${date.getFullYear()}-${date.getMonth()}-${date.getDate()}`
+            }
+            axios.put(`/admin/api/deplacements/${id}`,data)
+                .then(function (respo) { respo.data.id = id })
+                .catch(function (error) {console.log(error)})
+            console.log('ok')
+            dot.classList.add("bash")
         }
-        
-        
     }
     function toggleConfirmSortie(e){
         const dot = this.parentNode.querySelector('.dot')
-        console.log("sortie")
-        if ( this.value == 1){
-            this.value = 2
-            dot.classList.add("bash")
-
-            console.log(this.value)
-        }else if(this.value == 2) {
-            this.value = 1
-            console.log(this.value)
+        let id = this.parentNode.querySelector('span.hidden')
+        id = parseInt(id.innerText)
+        console.log(id)
+        if (dot.classList.contains("bash")){
+            const data = {
+                "confirmationSortie": false
+            }
+            axios
+                .put(`/admin/api/deplacements/${id}`,data)
+                .then(function (respo) { respo.data.id = id })
+                .catch(function (error) {console.log(error)})
+            console.log('ok')
             dot.classList.remove("bash")
+
+        }else {
+            const data = {
+                "confirmationSortie": true
+            }
+            axios.put(`/admin/api/deplacements/${id}`,data)
+                .then(function (respo) { respo.data.id = id })
+                .catch(function (error) {console.log(error)})
+            console.log('ok')
+            dot.classList.add("bash")
         }
 
 
     }
     function toggleDemandeRetour(e){
         const dot = this.parentNode.querySelector('.dot')
-        console.log("demande")
-        if ( this.value == 1){
-            this.value = 2
-            dot.classList.add("bash")
+        let id = this.parentNode.querySelector('span.hidden')
+        id = parseInt(id.innerText)
 
-            console.log(this.value)
-        }else if(this.value == 2) {
-            this.value = 1
-            console.log(this.value)
+        if (dot.classList.contains("bash")){
+            const data = {
+                "demandeRetour": false
+            }
+            axios
+                .put(`/admin/api/deplacements/${id}`,data)
+                .then(function (respo) { respo.data.id = id })
+                .catch(function (error) {console.log(error)})
+            console.log('ok')
             dot.classList.remove("bash")
+
+        }else {
+            const data = {
+                "demandeRetour": true
+            }
+            axios.put(`/admin/api/deplacements/${id}`,data)
+                .then(function (respo) { respo.data.id = id })
+                .catch(function (error) {console.log(error)})
+            console.log('ok')
+            dot.classList.add("bash")
         }
-
-
     }
     demandeRetour.forEach(function(link){
         link.addEventListener('click',toggleDemandeRetour)

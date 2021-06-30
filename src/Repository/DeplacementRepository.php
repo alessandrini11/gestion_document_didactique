@@ -19,6 +19,25 @@ class DeplacementRepository extends ServiceEntityRepository
         parent::__construct($registry, Deplacement::class);
     }
 
+    public function deplacementSortie()
+    {
+        return $this->getEntityManager()
+            ->createQuery(
+                'SELECT d FROM App\Entity\Deplacement d WHERE (d.confirmation_sortie = 0 OR d.confirmation_sortie = 1)  AND d.confirmation_retour = 0 AND d.demande_retour = 0 ORDER BY d.id DESC '
+            )
+            ->getResult()
+            ;
+    }
+
+    public function deplacementRetour()
+    {
+        return $this->getEntityManager()
+            ->createQuery(
+                'SELECT d FROM App\Entity\Deplacement d WHERE (d.demande_retour = 1 OR d.demande_retour = 0)  AND d.confirmation_sortie = 1 AND d.confirmation_retour = 0 ORDER BY d.id DESC '
+            )
+            ->getResult()
+            ;
+    }
     // /**
     //  * @return Deplacement[] Returns an array of Deplacement objects
     //  */

@@ -4,9 +4,15 @@ namespace App\Entity;
 
 use App\Repository\DeplacementRepository;
 use Doctrine\ORM\Mapping as ORM;
+use ApiPlatform\Core\Annotation\ApiResource;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
  * @ORM\Entity(repositoryClass=DeplacementRepository::class)
+ * @ApiResource(
+ *
+ * )
+ *
  */
 class Deplacement
 {
@@ -39,30 +45,32 @@ class Deplacement
 
     /**
      * @ORM\Column(type="datetime", nullable = true)
+     * @Groups({"read:item"})
      */
     private $date_retour;
 
     /**
      * @ORM\Column(type="boolean")
+     * @Groups({"read:item"})
+     *
      */
     private $confirmation_sortie;
 
     /**
      * @ORM\Column(type="boolean")
+     * @Groups({"read:item"})
      */
     private $confirmation_retour;
 
     /**
      * @ORM\Column(type="boolean", nullable=true)
+     * @Groups({"read:item"})
      */
     private $demande_retour;
 
 
     public function __construct()
     {
-        $this->demande_retour = 0;
-        $this->confirmation_retour = 0;
-        $this->confirmation_sortie = 0;
         $this->date_sortie = new \DateTime();
         $this->date_retour = null;
     }
@@ -132,17 +140,6 @@ class Deplacement
         return $this;
     }
 
-    public function getBoolean(): ?string
-    {
-        return $this->boolean;
-    }
-
-    public function setBoolean(string $boolean): self
-    {
-        $this->boolean = $boolean;
-
-        return $this;
-    }
 
     public function getConfirmationSortie(): ?bool
     {
