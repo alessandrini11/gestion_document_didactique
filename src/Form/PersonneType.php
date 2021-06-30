@@ -9,6 +9,8 @@ use App\Entity\Role;
 use App\Entity\Sexe;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\PasswordType;
+use Symfony\Component\Form\Extension\Core\Type\RepeatedType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -21,11 +23,11 @@ class PersonneType extends AbstractType
             ->add('prenom')
             ->add('telephone')
             ->add('email')
-            ->add('password')
-            ->add('role',EntityType::class,[
-                'class' => Role::class,
-                'choice_label' => 'nom',
-                'multiple' => true
+            ->add('password',RepeatedType::class,[
+                'type' => PasswordType::class,
+                'invalid_message' => 'les mots de passes ne sont pas identiques',
+                'required' => true,
+
             ])
             ->add('poste',EntityType::class,[
                 'class' => Post::class,

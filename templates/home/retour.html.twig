@@ -62,54 +62,58 @@
                         </td>
                         <td>
                             <div class="flex justify-center">
-                                {% if (deplacement.confirmationSortie == 1 and deplacement.demandeRetour == 1) %}
-                                    <div class="">
-                                        <label for="toogleb{{ loop.index }}" class="flex items-center cursor-pointer" >
-                                            <!-- toggle -->
-                                            <div class="relative">
-                                                <span class="hidden">{{ deplacement.id }}</span>
-                                                <!-- input -->
-                                                <input id="toogleb{{ loop.index }}" type="checkbox" value="1" class="demande sr-only" />
-                                                <!-- line -->
-                                                <div class="w-10 h-4 bg-gray-400 rounded-full shadow-inner"></div>
-                                                <!-- dot -->
-                                                <div class="bash dot absolute w-6 h-6 bg-white rounded-full shadow -left-1 -top-1 transition"></div>
-                                            </div>
-                                        </label>
-                                    </div>
-                                {% elseif (deplacement.confirmationSortie == 1 and deplacement.demandeRetour == 0) %}
-                                    <div class="">
-                                        <label for="toogleb{{ loop.index }}" class="flex items-center cursor-pointer">
-                                            <!-- toggle -->
-                                            <div class="relative">
-                                                <span class="hidden">{{ deplacement.id }}</span>
-                                                <!-- input -->
-                                                <input id="toogleb{{ loop.index }}" type="checkbox" value="1" class="demande sr-only" />
-                                                <!-- line -->
-                                                <div class="w-10 h-4 bg-gray-400 rounded-full shadow-inner"></div>
-                                                <!-- dot -->
-                                                <div class="lol dot absolute w-6 h-6 bg-white rounded-full shadow -left-1 -top-1 transition"></div>
-                                            </div>
-                                        </label>
-                                    </div>
+                                {% if (  is_granted('ROLE_USER') == true and is_granted('ROLE_ADMIN') == false ) %}
+                                    {% if (deplacement.confirmationSortie == 1 and deplacement.demandeRetour == 1) %}
+                                        <div class="">
+                                            <label for="toogleb{{ loop.index }}" class="flex items-center cursor-pointer" >
+                                                <!-- toggle -->
+                                                <div class="relative">
+                                                    <span class="hidden">{{ deplacement.id }}</span>
+                                                    <!-- input -->
+                                                    <input id="toogleb{{ loop.index }}" type="checkbox" value="1" class="demande sr-only" />
+                                                    <!-- line -->
+                                                    <div class="w-10 h-4 bg-gray-400 rounded-full shadow-inner"></div>
+                                                    <!-- dot -->
+                                                    <div class="bash dot absolute w-6 h-6 bg-white rounded-full shadow -left-1 -top-1 transition"></div>
+                                                </div>
+                                            </label>
+                                        </div>
+                                    {% elseif (deplacement.confirmationSortie == 1 and deplacement.demandeRetour == 0) %}
+                                        <div class="">
+                                            <label for="toogleb{{ loop.index }}" class="flex items-center cursor-pointer">
+                                                <!-- toggle -->
+                                                <div class="relative">
+                                                    <span class="hidden">{{ deplacement.id }}</span>
+                                                    <!-- input -->
+                                                    <input id="toogleb{{ loop.index }}" type="checkbox" value="1" class="demande sr-only" />
+                                                    <!-- line -->
+                                                    <div class="w-10 h-4 bg-gray-400 rounded-full shadow-inner"></div>
+                                                    <!-- dot -->
+                                                    <div class="lol dot absolute w-6 h-6 bg-white rounded-full shadow -left-1 -top-1 transition"></div>
+                                                </div>
+                                            </label>
+                                        </div>
+                                    {% endif %}
                                 {% endif %}
-                                {% if (deplacement.confirmationSortie == 1 and deplacement.demandeRetour == 1) %}
-                                    <div class="mx-2">
-                                        <label for="toogleA{{ loop.index }}"  class="flex items-center cursor-pointer"  >
-                                            <!-- toggle -->
-                                            <div class="relative">
-                                                <span class="hidden">{{ deplacement.id }}</span>
-                                                <!-- input -->
-                                                <input id="toogleA{{ loop.index }}" type="checkbox" value="1" class="retour sr-only" />
-                                                <!-- line -->
-                                                <div class="w-10 h-4 bg-gray-400 rounded-full shadow-inner"></div>
-                                                <!-- dot -->
-                                                <div class="lol dot absolute w-6 h-6 bg-white rounded-full shadow -left-1 -top-1 transition"></div>
-                                            </div>
-                                        </label>
-                                    </div>
-                                {% elseif (deplacement.confirmationSortie == 1 and deplacement.demandeRetour == 0) %}
-                                    <p>En attente de remise</p>
+                                {% if is_granted('ROLE_ADMIN') %}
+                                    {% if (deplacement.confirmationSortie == 1 and deplacement.demandeRetour == 1) %}
+                                        <div class="mx-2">
+                                            <label for="toogleA{{ loop.index }}"  class="flex items-center cursor-pointer"  >
+                                                <!-- toggle -->
+                                                <div class="relative">
+                                                    <span class="hidden">{{ deplacement.id }}</span>
+                                                    <!-- input -->
+                                                    <input id="toogleA{{ loop.index }}" type="checkbox" value="1" class="retour sr-only" />
+                                                    <!-- line -->
+                                                    <div class="w-10 h-4 bg-gray-400 rounded-full shadow-inner"></div>
+                                                    <!-- dot -->
+                                                    <div class="lol dot absolute w-6 h-6 bg-white rounded-full shadow -left-1 -top-1 transition"></div>
+                                                </div>
+                                            </label>
+                                        </div>
+                                    {% elseif (deplacement.confirmationSortie == 1 and deplacement.demandeRetour == 0) %}
+                                        <p>En attente de remise</p>
+                                    {% endif %}
                                 {% endif %}
                             </div>
                         </td>

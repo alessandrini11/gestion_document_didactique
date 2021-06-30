@@ -1,4 +1,49 @@
 {{ form_start(form) }}
-    {{ form_widget(form) }}
-    <button class="btn">{{ button_label|default('Save') }}</button>
+<div class="grid grid-cols-2 gap-3">
+    <div class="flex flex-col my-2">
+        <label for="">Nom</label>
+        {{ form_widget(form.nom,{'attr':{'class':'mt-2 focus:outline-none border rounded-md py-2 px-4'}}) }}
+    </div>
+
+    <div class="flex flex-col my-2">
+        <label for="">Prenom</label>
+        {{ form_widget(form.prenom,{'attr':{'class':'mt-2 focus:outline-none border rounded-md py-2 px-4'}}) }}
+
+    </div>
+</div>
+<div class="grid grid-cols-2 gap-3">
+    <div class="flex flex-col my-2">
+        <label for="">Sexe</label>
+        {{ form_widget(form.sexe,{'attr':{'class':'mt-2 focus:outline-none border rounded-md py-2 px-4'}}) }}
+    </div>
+    <div class="flex flex-col my-2">
+        <label for="">Poste</label>
+        {{ form_widget(form.poste,{'attr':{'class':'mt-2 focus:outline-none border rounded-md py-2 px-4'}}) }}
+    </div>
+</div>
+<div class="flex flex-col my-2">
+    <label for="">Filiere</label>
+    {{ form_widget(form.filiere,{'attr':{'class':'mt-2 focus:outline-none border rounded-md py-2 px-4'}}) }}
+</div>
+<div class="grid grid-cols-2 gap-3">
+    <div class="flex flex-col my-2">
+        <label for="">Telephone</label>
+        {{ form_widget(form.telephone,{'attr':{'class':'mt-2 focus:outline-none border rounded-md py-2 px-4'}}) }}
+    </div>
+    <div class="flex flex-col my-2">
+        <label for="">Email</label>
+        {{ form_widget(form.email,{'attr':{'class':'mt-2 focus:outline-none border rounded-md py-2 px-4'}}) }}
+    </div>
+</div>
+<div class="grid grid-cols-2 gap-3">
+    <div class="flex flex-col my-2">
+        <label for="">Mot de Passe</label>
+        {{ form_widget(form.password.first,{'attr':{'class':'mt-2 focus:outline-none border rounded-md py-2 px-4'}}) }}
+    </div>
+    <div class="flex flex-col my-2">
+        <label for="">Confirmez mot de passe</label>
+        {{ form_widget(form.password.second,{'attr':{'class':'mt-2 focus:outline-none border rounded-md py-2 px-4'}}) }}
+    </div>
+</div>
+    <button class="w-full bg-purple-600 text-white py-3 mt-5 rounded">{{ button_label|default('Enregistrer') }}</button>
 {{ form_end(form) }}

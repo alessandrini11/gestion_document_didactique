@@ -5,7 +5,7 @@
 {% block body %}
     <div class="w-11/12 mx-auto">
 
-        <section class="my-3 border border-gray-300 shadow-lg p-3">
+        <section class="overflow-x-auto my-3 border border-gray-300 shadow-lg p-3">
             {% for message in app.flashes('success') %}
                 <div class="bg-green-200 text-green-600 ">
                     <p class="py-3 px-6">{{ message }}</p>

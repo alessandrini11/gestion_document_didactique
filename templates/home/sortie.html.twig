@@ -18,7 +18,7 @@
                     <th class="py-3 lg:px-3 text-left">Filière</th>
                     <th class="py-3 lg:px-3 text-center">Date</th>
                     <th class="py-3 lg:px-6 text-center">Statut</th>
-                    <th class="py-3 lg:px-6 text-center">Action</th>
+                    {% if is_granted('ROLE_ADMIN') %}<th class="py-3 lg:px-6 text-center">Action</th>{% endif %}
                 </tr>
                 </thead>
                 <tbody class="text-gray-600 text-sm font-light">
@@ -63,6 +63,7 @@
                                     <span class="bg-red-200 text-red-600 py-1 px-3 rounded-full text-xs">En attente</span>
                             {% endif %}
                         </td>
+                        {% if is_granted('ROLE_ADMIN') %}
                         <td>
                             <div class="">
                                 <label for="toogle{{ loop.index }}" class="flex items-center cursor-pointer"
@@ -81,6 +82,7 @@
 
                             </div>
                         </td>
+                        {% endif %}
                     </tr>
                 {% endfor %}
                 </tbody>

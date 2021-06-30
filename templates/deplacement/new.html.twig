@@ -1,11 +1,14 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}New Deplacement{% endblock %}
+{% block title %}Demande{% endblock %}
 
 {% block body %}
-    <h1>Create new Deplacement</h1>
 
-    {{ include('deplacement/_form.html.twig') }}
+    <div class="w-10/12 md:w-1/2 mx-auto">
+        <h1 class="text-2xl mt-2">Demander un document</h1>
+        {{ include('deplacement/_form.html.twig') }}
+    </div>
+
 
     <a href="{{ path('deplacement_index') }}">back to list</a>
 {% endblock %}

@@ -23,35 +23,9 @@
     <div class="w-11/12 md:w-4/5 mx-auto">
         <div class="flex justify-between text-xl">
             <a class="font-bold" href="">GESDICDAC</a>
-            <div class="">
-                <ul class="hidden md:flex">
-                    <li class="mx-2"><a href="{{ path('admin') }}" class="">Dashboard</a></li>
-                    <li class="mx-2"><a href="{{ path('home') }}" class="">Acceuil</a></li>
-                    <li class="mx-2"><a href="{{ path('sortie') }}" class="">Sorties</a></li>
-                    <li class="mx-2"><a href="{{ path('retour') }}" class="">Retours</a></li>
-                    <li class="mx-2"><a href="{{ path('document_index') }}" class="">Document</a></li>
-                    <li class="mx-2"><a href="{{ path('deplacement_index') }}" class="">Deplacement</a></li>
-                    <li class="mx-2"><a href="{{ path('personne_index') }}" class="">Utilisateur</a></li>
-                </ul>
-                <div id="menu-btn" class="md:hidden cursor-pointer">
-                    <i class="fas fa-bars"></i>
-                </div>
-            </div>
-            <div class="hidden md:block">
-                <i class="fas fa-power-off"></i>
-            </div>
+
         </div>
     </div>
-    <ul id="mobile-menu" class=" text-xl text-center -left-full bg-blue-900 fixed top-0   h-screen w-1/2 flex flex-col pt-5 md:hidden transition-all">
-        <li class="py-2 mx-4 border-b border-white"><a href="{{ path('admin') }}" class="">Dashboard</a></li>
-        <li class="my-2 mx-4 border-b border-white"><a href="{{ path('home') }}" class="">Acceuil</a></li>
-        <li class="py-2 mx-4 border-b border-white"><a href="{{ path('sortie') }}" class="">Sorties</a></li>
-        <li class="my-2 mx-4 border-b border-white"><a href="{{ path('retour') }}" class="">Retours</a></li>
-        <li class="py-2 mx-4 border-b border-white"><a href="{{ path('document_index') }}" class="">Documents</a></li>
-        <li class="py-2 mx-4 border-b border-white"><a href="{{ path('deplacement_index') }}" class="">Deplacements</a></li>
-        <li class="py-2 mx-4 border-b border-white"><a href="{{ path('personne_index') }}" class="">Utilisateurs</a></li>
-        <li class="py-2 mx-4 border-b border-white"><i class="fas fa-power-off"></i></li>
-    </ul>
 </nav>
 {% block body %}{% endblock %}
 </body>

@@ -1,4 +1,18 @@
 {{ form_start(form) }}
-    {{ form_widget(form) }}
-    <button class="btn">{{ button_label|default('Save') }}</button>
+<div class="flex flex-col my-2">
+    <label for="">Utilisateur</label>
+    {{ form_widget(form.personne,{'attr':{'class':'mt-2 focus:outline-none border rounded-md py-2 px-4'}}) }}
+
+</div>
+<div class="flex flex-col my-2">
+    <label for="">Document</label>
+    {{ form_widget(form.document,{'attr':{'class':'mt-2 focus:outline-none border rounded-md py-2 px-4'}}) }}
+
+</div>
+<div class="flex flex-col my-2">
+    <label for="">Quantite</label>
+    {{ form_widget(form.quantite,{'attr':{'class':'mt-2 focus:outline-none border rounded-md py-2 px-4'}}) }}
+
+</div>
+    <button class="w-full bg-purple-600 text-white py-3 mt-5 rounded">{{ button_label|default('Demander') }}</button>
 {{ form_end(form) }}

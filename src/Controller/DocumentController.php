@@ -5,13 +5,14 @@ namespace App\Controller;
 use App\Entity\Document;
 use App\Form\DocumentType;
 use App\Repository\DocumentRepository;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
- * @Route("/admin/document")
+ * @Route("/document")
  */
 class DocumentController extends AbstractController
 {
@@ -26,7 +27,7 @@ class DocumentController extends AbstractController
     }
 
     /**
-     * @Route("/new", name="document_new", methods={"GET","POST"})
+     * @Route("/admin/new", name="document_new", methods={"GET","POST"})
      */
     public function new(Request $request): Response
     {
@@ -53,7 +54,7 @@ class DocumentController extends AbstractController
     }
 
     /**
-     * @Route("/{id}", name="document_show", methods={"GET"})
+     * @Route("/admin/{id}", name="document_show", methods={"GET"})
      */
     public function show(Document $document): Response
     {
@@ -63,7 +64,7 @@ class DocumentController extends AbstractController
     }
 
     /**
-     * @Route("/{id}/edit", name="document_edit", methods={"GET","POST"})
+     * @Route("/admin/{id}/edit", name="document_edit", methods={"GET","POST"})
      */
     public function edit(Request $request, Document $document): Response
     {
@@ -83,7 +84,7 @@ class DocumentController extends AbstractController
     }
 
     /**
-     * @Route("/{id}", name="document_delete", methods={"POST"})
+     * @Route("/admin/{id}", name="document_delete", methods={"POST"})
      */
     public function delete(Request $request, Document $document): Response
     {
