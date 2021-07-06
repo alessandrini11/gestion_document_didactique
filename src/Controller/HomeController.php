@@ -25,6 +25,7 @@ class HomeController extends AbstractController
             'confirmation_retour' => 1,
             'demande_retour' => 1
         )));
+
         $sorties = count($deplacementRepo->deplacementSortie());
         $retours = count($deplacementRepo->deplacementRetour());
         return $this->render('admin/index.html.twig', [
@@ -52,7 +53,7 @@ class HomeController extends AbstractController
         $deplacements = $repo->deplacementSortie();
         dump($deplacements);
         return $this->render('home/sortie.html.twig', [
-            'deplacements' => $deplacements
+            'deplacements' => $deplacements,
         ]);
     }
 

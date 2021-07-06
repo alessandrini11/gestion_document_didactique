@@ -23,7 +23,7 @@ class DeplacementRepository extends ServiceEntityRepository
     {
         return $this->getEntityManager()
             ->createQuery(
-                'SELECT d FROM App\Entity\Deplacement d WHERE (d.confirmation_sortie = 0 OR d.confirmation_sortie = 1)  AND d.confirmation_retour = 0 AND d.demande_retour = 0 ORDER BY d.id DESC '
+                'SELECT d FROM App\Entity\Deplacement d WHERE (d.confirmation_sortie = 0 OR d.confirmation_sortie = 1)  AND d.confirmation_retour = 0 AND d.demande_retour = 0 ORDER BY d.id DESC  '
             )
             ->getResult()
             ;

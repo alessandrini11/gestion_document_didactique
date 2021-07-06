@@ -17,9 +17,7 @@
                     <th class="py-3 lg:px-6 text-center">Filiere</th>
                     <th class="py-3 lg:px-6 text-center">Date</th>
                     <th class="py-3 lg:px-6 text-center">Statut</th>
-                    {% if is_granted('ROLE_ADMIN') %}
                         <th class="py-3 lg:px-6 text-center">Action</th>
-                    {% endif %}
                 </tr>
                 </thead>
                 <tbody class="text-gray-600 text-sm font-light">
@@ -65,7 +63,7 @@
                         <td>
                             <div class="flex justify-center">
                                 {% if (  is_granted('ROLE_USER') == true and is_granted('ROLE_ADMIN') == false ) %}
-                                    {% if (deplacement.confirmationSortie == 1 and deplacement.demandeRetour == 1) %}
+                                    {% if (deplacement.confirmationSortie == 1 and deplacement.demandeRetour == 1 and deplacement.personne == app.user) %}
                                         <div class="">
                                             <label for="toogleb{{ loop.index }}" class="flex items-center cursor-pointer" >
                                                 <!-- toggle -->
@@ -80,7 +78,7 @@
                                                 </div>
                                             </label>
                                         </div>
-                                    {% elseif (deplacement.confirmationSortie == 1 and deplacement.demandeRetour == 0) %}
+                                    {% elseif (deplacement.confirmationSortie == 1 and deplacement.demandeRetour == 0) and deplacement.personne == app.user %}
                                         <div class="">
                                             <label for="toogleb{{ loop.index }}" class="flex items-center cursor-pointer">
                                                 <!-- toggle -->
