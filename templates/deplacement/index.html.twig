@@ -11,6 +11,11 @@
                     <p class="py-3 px-6">{{ message }}</p>
                 </div>
             {% endfor %}
+            {% for message in app.flashes('danger') %}
+                <div class="bg-red-200 text-red-600 ">
+                    <p class="py-3 px-6">{{ message }}</p>
+                </div>
+            {% endfor %}
             <div class="flex justify-between">
                 <h2 class="mb-3 text-xl font-semibold">Liste des Deplacements</h2>
                 {% if is_granted('ROLE_USER') %}
@@ -25,7 +30,6 @@
                     <th class="py-3 lg:px-6 text-left">Id</th>
                     <th class="py-3 lg:px-6 text-left">Nom</th>
                     <th class="py-3 lg:px-6 text-left">Type</th>
-                    <th class="py-3 lg:px-6 text-center">Quantité</th>
                     <th class="py-3 lg:px-6 text-left">Utilisateur</th>
                     <th class="py-3 lg:px-6 text-center">Filière</th>
                     <th class="py-3 lg:px-6 text-center">Date Sortie</th>
@@ -53,11 +57,6 @@
                                 <span class="font-medium">{{ deplacement.document.type.nom }}</span>
                             </div>
                         </td>
-                        <td class="py-3 lg:px-6 text-left">
-                            <div class="flex items-center">
-                                <span>{{ deplacement.document.quantite }}</span>
-                            </div>
-                        </td>
                         <td class="py-3 lg:px-6 text-left whitespace-nowrap">
                             <div class="flex items-center">
                                 <span class="font-medium">{{ deplacement.personne.nom }} {{ deplacement.personne.prenom }}</span>
@@ -68,17 +67,17 @@
                                 <span>{{ deplacement.personne.filiere.nom }}</span>
                             </div>
                         </td>
-                        <td class="py-3 lg:px-6 text-left">
+                        <td class="py-3 lg:px-3 text-left">
                             <div class="flex items-center">
                                 <span>{{ deplacement.dateSortie | date('d M Y') }}</span>
                             </div>
                         </td>
-                        <td class="py-3 lg:px-6 text-center">
+                        <td class="py-3 lg:px-3 text-center">
                             <span>
                                 {% if(deplacement.dateRetour == null) %}
                                     En cours d'utilisation
                                     {% else %}
-                                        {{ deplacement.dateRetour | date('d M Y') }}
+                                        {{ deplacement.dateSortie | date('d M Y') }}
                                 {% endif %}
                             </span>
                         </td>

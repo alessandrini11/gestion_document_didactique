@@ -25,7 +25,12 @@ class HomeController extends AbstractController
             'confirmation_retour' => 1,
             'demande_retour' => 1
         )));
-
+        $userrecent = $personneRepo->findBy(array(),array(
+            'id' => 'DESC'
+        ),3);
+        $documentrecent = $documentRepo->findBy(array(),array(
+            'id' => 'DESC'
+        ),3);
         $sorties = count($deplacementRepo->deplacementSortie());
         $retours = count($deplacementRepo->deplacementRetour());
         return $this->render('admin/index.html.twig', [
@@ -35,6 +40,8 @@ class HomeController extends AbstractController
             'deplacements' => $deplacements,
             'sorties' => $sorties,
             'retours' => $retours,
+            'usersrecent' => $userrecent,
+            'documentsrecent' => $documentrecent
         ]);
     }
     /**
@@ -73,6 +80,18 @@ class HomeController extends AbstractController
         dump($deplacements);
         return $this->render('home/retour.html.twig', [
             'deplacements' => $deplacements
+        ]);
+    }
+
+    /**
+     * @Route("/litige",name="litige")
+     */
+    public function litige(DeplacementRepository $deplacement) : Response
+    {
+        $ligitges = $deplacement->findAll();
+
+        return $this->render('home/litige.html.twig',[
+            'litiges' => $ligitges
         ]);
     }
 }

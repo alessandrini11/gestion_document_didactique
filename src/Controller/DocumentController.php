@@ -27,7 +27,7 @@ class DocumentController extends AbstractController
     }
 
     /**
-     * @Route("/admin/new", name="document_new", methods={"GET","POST"})
+     * @Route("/new", name="document_new", methods={"GET","POST"})
      */
     public function new(Request $request): Response
     {

@@ -43,7 +43,7 @@ window.addEventListener("load",function () {
         }else {
             const data = {
                 "confirmationRetour": true,
-                "dateRetour" : `${date.getFullYear()}-${date.getMonth()}-${date.getDate()}`
+                "dateRetour" : `${date.getFullYear()}/${date.getMonth()}/${date.getDate()}`
             }
             axios.put(`/api/deplacements/${id}`,data)
                 .then(function (respo) { respo.data.id = id })

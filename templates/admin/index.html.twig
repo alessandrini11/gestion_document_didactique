@@ -3,7 +3,7 @@
 {% block title %}Admin{% endblock %}
 
 {% block body %}
-<div class="w-11/12 lg:w-3/5 mx-auto">
+<div class="w-11/12 lg:w-4/5 mx-auto">
     <section class="my-3">
         <div class="">
             <div class="grid grid-cols-3 gap-2 text-white ">
@@ -40,121 +40,39 @@
             </div>
         </div>
     </section>
-    <section class="my-3 border border-gray-300 shadow-lg p-3">
-        <h2 class="mb-3 text-xl font-semibold">Deplacement en attente de confirmation de sortie</h2>
-        <table class=" w-full">
-            <thead>
-            <tr class="bg-gray-200 text-gray-600 uppercase text-sm leading-normal">
-                <th class="py-3 lg:px-6 text-left">Document</th>
-                <th class="py-3 lg:px-6 text-center">Quantité</th>
-                <th class="py-3 lg:px-6 text-left">Utilisateur</th>
-                <th class="py-3 lg:px-6 text-center">Date</th>
-                <th class="py-3 lg:px-6 text-center">Status</th>
-                <th class="py-3 lg:px-6 text-center">Actions</th>
-            </tr>
-            </thead>
-            <tbody class="text-gray-600 text-sm font-light">
-            <tr class="border-b border-gray-200 hover:bg-gray-100">
-                <td class="py-3 lg:px-6 text-left whitespace-nowrap">
-                    <div class="flex items-center">
-                        <span class="font-medium">React Project</span>
-                    </div>
-                </td>
-                <td class="py-3 lg:px-6 text-left whitespace-nowrap">
-                    <div class="flex items-center">
-                        <span class="font-medium">2</span>
-                    </div>
-                </td>
-                <td class="py-3 lg:px-6 text-left">
-                    <div class="flex items-center">
-                        <span>Eshal Rosas</span>
-                    </div>
-                </td>
-                <td class="py-3 lg:px-6 text-center">
-                    <span>11 jan 2021</span>
-                </td>
-                <td class="py-3 lg:px-6 text-center">
-                    <span class="bg-purple-200 text-purple-600 py-1 px-3 rounded-full text-xs">Active</span>
-                </td>
-                <td class="py-3 lg:px-6 text-center">
-                    <div class="flex item-center justify-center">
-                        <div class="">
 
-                            <label
-                                    for="toogleA"
-                                    class="flex items-center cursor-pointer"
-                            >
-                                <!-- toggle -->
-                                <div class="relative">
-                                    <!-- input -->
-                                    <input id="toogleA" type="checkbox" value="1" class="sortie sr-only" />
-                                    <!-- line -->
-                                    <div class="w-10 h-4 bg-gray-400 rounded-full shadow-inner"></div>
-                                    <!-- dot -->
-                                    <div class="lol dot absolute w-6 h-6 bg-white rounded-full shadow -left-1 -top-1 transition"></div>
-                                </div>
-                            </label>
-
-                        </div>
-                    </div>
-                </td>
-            </tr>
-            </tbody>
-        </table>
-    </section>
     <section class="my-3 border border-gray-300 shadow-lg p-3">
-        <h2 class="mb-3 text-xl font-semibold">Document en attente de confirmation de retour</h2>
+        <h2 class="mb-3 text-xl font-semibold">Utilisateur Récemment Ajouté</h2>
         <table class="min-w-full">
             <thead>
             <tr class="bg-gray-200 text-gray-600 uppercase text-sm leading-normal">
-                <th class="py-3 lg:px-6 text-left">Document</th>
-                <th class="py-3 lg:px-6 text-left">Utilisateur</th>
-                <th class="py-3 lg:px-6 text-center">Date</th>
-                <th class="py-3 lg:px-6 text-center">Status</th>
-                <th class="py-3 lg:px-6 text-center">Actions</th>
+                <th class="py-3 lg:px-6 text-left">Nom</th>
+                <th class="py-3 lg:px-6 text-left">Prenom</th>
+                <th class="py-3 lg:px-6 text-center">Poste</th>
+                <th class="py-3 lg:px-6 text-center">Filière</th>
             </tr>
             </thead>
             <tbody class="text-gray-600 text-sm font-light">
-            <tr class="border-b border-gray-200 hover:bg-gray-100">
-                <td class="py-3 lg:px-6 text-left whitespace-nowrap">
-                    <div class="flex items-center">
-                        <span class="font-medium">React Project</span>
-                    </div>
-                </td>
-                <td class="py-3 lg:px-6 text-left">
-                    <div class="flex items-center">
-                        <span>Eshal Rosas</span>
-                    </div>
-                </td>
-                <td class="py-3 lg:px-6 text-center">
-                    <span>11 jan 2021</span>
-                </td>
-                <td class="py-3 px-6 text-center">
-                    <span class="bg-purple-200 text-purple-600 py-1 px-3 rounded-full text-xs">Active</span>
-                </td>
-                <td class="py-3 lg:px-6 text-center">
-                    <div class="flex item-center justify-center">
-                        <div class="">
-
-                            <label
-                                    for="toogleB"
-                                    class="flex items-center cursor-pointer"
-                            >
-                                <!-- toggle -->
-                                <div class="relative">
-                                    <!-- input -->
-                                    <input id="toogleB" type="checkbox" value="1" class="retour sr-only" />
-                                    <!-- line -->
-                                    <div class="w-10 h-4 bg-gray-400 rounded-full shadow-inner"></div>
-                                    <!-- dot -->
-                                    <div class="lol dot absolute w-6 h-6 bg-white rounded-full shadow -left-1 -top-1 transition"></div>
-                                </div>
-                            </label>
-
-                        </div>
-                    </div>
-                </td>
-            </tr>
+                {% for user in usersrecent %}
+                    <tr class="border-b border-gray-200 hover:bg-gray-100">
+                        <td class="py-3 lg:px-6 text-left whitespace-nowrap">
+                            <div class="flex items-center">
+                                <span class="font-medium">{{ user.nom }}</span>
+                            </div>
+                        </td>
+                        <td class="py-3 lg:px-6 text-left">
+                            <div class="flex items-center">
+                                <span>{{ user.prenom }}</span>
+                            </div>
+                        </td>
+                        <td class="py-3 lg:px-6 text-center">
+                            <span>{{ user.poste.nom }}</span>
+                        </td>
+                        <td class="py-3 px-6 text-center">
+                            <span class="">{{ user.filiere.nom }}</span>
+                        </td>
+                    </tr>
+                {% endfor %}
             </tbody>
         </table>
     </section>
@@ -165,29 +83,29 @@
             <tr class="bg-gray-200 text-gray-600 uppercase text-sm leading-normal">
                 <th class="py-3 lg:px-6 text-left">Nom</th>
                 <th class="py-3 lg:px-6 text-left">Marque</th>
-                <th class="py-3 lg:px-6 text-center">Quantité</th>
-                <th class="py-3 lg:px-6 text-center">Disponibilité</th>
+                <th class="py-3 lg:px-6 text-left">Type</th>
             </tr>
             </thead>
             <tbody class="text-gray-600 text-sm font-light">
-            <tr class="border-b border-gray-200 hover:bg-gray-100">
-                <td class="py-3 lg:px-6 text-left whitespace-nowrap">
-                    <div class="flex items-center">
-                        <span class="font-medium">React Project</span>
-                    </div>
-                </td>
-                <td class="py-3 lg:px-6 text-left">
-                    <div class="flex items-center">
-                        <span>Eshal Rosas</span>
-                    </div>
-                </td>
-                <td class="py-3 lg:px-6 text-center">
-                    <span>11 jan 2021</span>
-                </td>
-                <td class="py-3 px-6 text-center">
-                    <span class="bg-purple-200 text-purple-600 py-1 px-3 rounded-full text-xs">Active</span>
-                </td>
-            </tr>
+            {% for doc in documentsrecent %}
+                <tr class="border-b border-gray-200 hover:bg-gray-100">
+                    <td class="py-3 lg:px-6 text-left whitespace-nowrap">
+                        <div class="flex items-center">
+                            <span class="font-medium">{{ doc.nom }}</span>
+                        </div>
+                    </td>
+                    <td class="py-3 lg:px-6 text-left">
+                        <div class="flex items-center">
+                            <span>{{ doc.marque }}</span>
+                        </div>
+                    </td>
+                    <td class="py-3 lg:px-6 text-center">
+                        <div class="flex items-center">
+                            <span>{{ doc.type.nom }}</span>
+                        </div>
+                    </td>
+                </tr>
+            {% endfor %}
             </tbody>
         </table>
     </section>

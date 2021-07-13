@@ -98,6 +98,10 @@ class DeplacementController extends AbstractController
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->remove($deplacement);
             $entityManager->flush();
+            $this->addFlash(
+                'danger',
+                'La suppression a été avec succèss'
+            );
         }
 
         return $this->redirectToRoute('deplacement_index');

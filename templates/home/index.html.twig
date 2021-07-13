@@ -115,26 +115,3 @@
     </section>
 </div>
 {% endblock %}
-{% block javascripts %}
-<script >
-const toggle = document.querySelectorAll('.toogle')
-function toggleConfirm(e){
-        const dot = this.parentNode.querySelector('.dot')
-        if ( this.value == 1){
-            this.value = 2
-            dot.classList.add('bash')
-            
-            console.log(this.value)
-        }else if(this.value == 2) {
-            this.value = 1
-            console.log(this.value)
-            dot.classList.remove('bash')
-        }
-        
-        
-    }
-    toggle.forEach(function(link){
-        link.addEventListener('click',toggleConfirm)
-    })
-</script>
-{% endblock %}

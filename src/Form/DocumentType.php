@@ -20,8 +20,6 @@ class DocumentType extends AbstractType
                 'choice_label' => 'nom'
             ])
             ->add('marque')
-            ->add('disponibilite')
-            ->add('quantite')
         ;
     }
 

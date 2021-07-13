@@ -27,9 +27,10 @@
                 <ul class="hidden md:flex">
                     <li class="mx-2"><a href="{{ path('home') }}" class="">Acceuil</a></li>
                     <li class="mx-2"><a href="{{ path('sortie') }}" class="">Sorties</a></li>
-                    <li class="mx-2"><a href="{{ path('retour') }}" class="">Retours</a></li>
+                    <li class="mx-2"><a href="{{ path('retour') }}" class="">Remises</a></li>
                     <li class="mx-2"><a href="{{ path('document_index') }}" class="">Document</a></li>
                     <li class="mx-2"><a href="{{ path('deplacement_index') }}" class="">Deplacement</a></li>
+                    <li class="mx-2"><a href="{{ path('litige') }}" class="">Litiges</a></li>
                     <li class="mx-2"><a href="{{ path('personne_index') }}" class="">Utilisateur</a></li>
                     
                 </ul>
@@ -45,10 +46,11 @@
     <ul id="mobile-menu" class=" text-xl text-center -left-full bg-blue-900 fixed top-0   h-screen w-1/2 flex flex-col pt-5 md:hidden transition-all">
         <li class="py-2 mx-4 border-b border-white"><a href="{{ path('home') }}" class="">Acceuil</a></li>
         <li class="py-2 mx-4 border-b border-white"><a href="{{ path('sortie') }}" class="">Sorties</a></li>
-        <li class="py-2 mx-4 border-b border-white"><a href="{{ path('retour') }}" class="">Retours</a></li>
+        <li class="py-2 mx-4 border-b border-white"><a href="{{ path('retour') }}" class="">Remises</a></li>
         <li class="py-2 mx-4 border-b border-white"><a href="{{ path('document_index') }}" class="">Document</a></li>
         <li class="py-2 mx-4 border-b border-white"><a href="{{ path('deplacement_index') }}" class="">Deplacement</a></li>
         <li class="py-2 mx-4 border-b border-white"><a href="{{ path('personne_index') }}" class="">Utilisateur</a></li>
+        <li class="py-2 mx-4 border-b border-white"><a href="{{ path('litige') }}" class="">Litiges</a></li>
         <li class="py-2 mx-4 border-b border-white"> <a  href="{{ path('logout') }}"><i class="fas fa-power-off"></i></a></li>
     </ul>
 </nav>

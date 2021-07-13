@@ -21,7 +21,6 @@ class DeplacementType extends AbstractType
                 'choice_label' => 'nom',
 
             ])
-            ->add('quantite')
         ;
     }
 

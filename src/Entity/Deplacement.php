@@ -76,6 +76,7 @@ class Deplacement
         $this->demande_retour = 0;
         $this->confirmation_retour = 0;
         $this->confirmation_sortie = 0;
+        $this->quantite = 1;
     }
 
     public function getId(): ?int

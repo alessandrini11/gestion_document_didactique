@@ -15,16 +15,6 @@
     {{ form_widget(form.marque,{'attr':{'class':'mt-2 focus:outline-none border rounded-md py-2 px-4'}}) }}
 
 </div>
-<div class="flex flex-col my-1">
-    <label for="">Disponible?</label>
-    {{ form_widget(form.disponibilite,{'attr':{'class':'mt-2 focus:outline-none border rounded-md py-2 px-4'}}) }}
-
-</div>
-<div class="flex flex-col my-1">
-    <label for="">Quantité</label>
-    {{ form_widget(form.quantite,{'attr':{'class':'mt-2 focus:outline-none border rounded-md py-2 px-4'}}) }}
-
-</div>
 
     <button class="w-full bg-purple-600 text-white py-3 mt-5 rounded">{{ button_label|default('Save') }}</button>
 {{ form_end(form) }}

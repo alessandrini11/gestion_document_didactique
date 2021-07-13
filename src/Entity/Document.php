@@ -54,6 +54,8 @@ class Document
     public function __construct()
     {
         $this->deplacements = new ArrayCollection();
+        $this->quantite = 1;
+        $this->disponibilite = true;
     }
 
     public function getId(): ?int

@@ -1,0 +1,103 @@
+{% extends 'base.html.twig' %}
+{% block title %}
+litiges
+{% endblock %}
+{% block body %}
+    <div class="w-11/12  mx-auto">
+
+        <section class="my-3 border border-gray-300 shadow-lg p-3">
+            <h2 class="mb-3 text-xl font-semibold">Liste des Cas Litigieux</h2>
+            <table class="min-w-full">
+                <thead>
+                <tr class="bg-gray-200 text-gray-600 uppercase text-sm leading-normal">
+                    <th class="py-3 lg:px-6 text-left">Nom</th>
+                    <th class="py-3 lg:px-6 text-left">Type</th>
+                    <th class="py-3 lg:px-6 text-left">Utilisateur</th>
+                    <th class="py-3 lg:px-6 text-center">Filiere</th>
+                    <th class="py-3 lg:px-6 text-center">Date</th>
+                    <th class="py-3 lg:px-6 text-center">Statut</th>
+                    <th class="py-3 lg:px-6 text-center">Remise</th>
+                    <th class="py-3 lg:px-6 text-center">Confirmer</th>
+                </tr>
+                </thead>
+                <tbody class="text-gray-600 text-sm font-light">
+                {% for deplacement in litiges %}
+                    {% if deplacement.confirmationRetour == true and deplacement.demandeRetour == false and deplacement.confirmationSortie == true %}
+                        <tr class="border-b border-gray-200 hover:bg-gray-100">
+                            <td class="py-3 lg:px-6 text-left whitespace-nowrap">
+                                <div class="flex items-center">
+                                    <span class="font-medium">{{ deplacement.document.nom }}</span>
+                                </div>
+                            </td>
+                            <td class="py-3 lg:px-6 text-left whitespace-nowrap">
+                                <div class="flex items-center">
+                                    <span class="font-medium">{{ deplacement.document.type.nom }}</span>
+                                </div>
+                            </td>
+                            <td class="py-3 lg:px-6 text-left whitespace-nowrap">
+                                <div class="flex items-center">
+                                    <span class="font-medium">{{ deplacement.personne.nom }}</span>
+                                </div>
+                            </td>
+                            <td class="py-3 lg:px-6 text-left">
+                                <div class="flex items-center">
+                                    <span>{{ deplacement.personne.filiere.nom }}</span>
+                                </div>
+                            </td>
+                            <td class="py-3 lg:px-6 text-center">
+                                <span>{{ deplacement.dateSortie | date('d M Y') }}</span>
+                            </td>
+                            <td class="py-3 px-6 text-center">
+                                <span id="message{{ loop.index }}" class="bg-indigo-200 text-indigo-600 py-1 px-3 rounded-full text-xs">En attente</span>
+                            </td>
+                            <td>
+                                {% if is_granted('ROLE_ADMIN') %}
+                                    <div class="flex justify-center">
+                                    <label for="toogleb{{ loop.index }}" class="flex items-center cursor-pointer" >
+                                        <!-- toggle -->
+                                        <div class="relative">
+                                            <span class="hidden">{{ deplacement.id }}</span>
+                                            <!-- input -->
+                                            <input id="toogleb{{ loop.index }}" type="checkbox" value="1" class="demande sr-only" />
+                                            <!-- line -->
+                                            <div class="w-10 h-4 bg-gray-400 rounded-full shadow-inner"></div>
+                                            <!-- dot -->
+                                            <div class="{% if deplacement.demandeRetour == true %} bash {% endif %} dot absolute w-6 h-6 bg-white rounded-full shadow -left-1 -top-1 transition"></div>
+                                        </div>
+                                    </label>
+                                    </div>
+                                    {% else %}
+                                {% endif %}
+                            </td>
+                            <td>
+                                {% if is_granted('ROLE_ADMIN') %}<div class="flex justify-center">
+                                    <label for="tooglec{{ loop.index }}" class="flex items-center cursor-pointer">
+                                        <!-- toggle -->
+                                        <div class="relative">
+                                            <span class="hidden">{{ deplacement.id }}</span>
+                                            <!-- input -->
+                                            <input id="tooglec{{ loop.index }}" type="checkbox" value="1" class="retour sr-only" />
+                                            <!-- line -->
+                                            <div class="w-10 h-4 bg-gray-400 rounded-full shadow-inner"></div>
+                                            <!-- dot -->
+                                            <div class="{% if deplacement.confirmationRetour == true %} bash {% endif %}lol dot absolute w-6 h-6 bg-white rounded-full shadow -left-1 -top-1 transition"></div>
+                                        </div>
+                                    </label>
+                                    </div>
+                                    {% else %}
+                                        <span class="text-xs"> Contactez un <a class="text-green-500 " href="{{ path('personne_index') }}">admin</a></span>
+                                {% endif %}
+                            </td>
+                        </tr>
+                    {% endif %}
+                    {% else %}
+                    <span>Aucun Cas Litige</span>
+                {% endfor %}
+                </tbody>
+            </table>
+        </section>
+    </div>
+{% endblock %}
+
+
+
